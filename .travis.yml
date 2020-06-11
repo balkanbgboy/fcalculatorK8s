@@ -18,7 +18,7 @@ before_install:
   - docker build -t balkanbgboy/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true balkanbgboy/docker-react npm run test
+  - docker run balkanbgboy/docker-react npm run test -- --coverage
 
 deploy:
   provider: script
