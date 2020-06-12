@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k8simm-de-tls
+spec:
+  secretName: k8simm-de
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8simm.de
+  dnsNames:
+    - k8simm.de
+    - www.k8simm.de
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - k8simm.de
+          - k8simm.de
